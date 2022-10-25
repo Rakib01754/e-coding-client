@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Login = () => {
     return (
-        <div className="w-[90%] mx-auto max-w-md p-8 space-y-3 rounded-xl bg-gray-900 text-gray-100 mt-5">
+        <div className="w-[90%] mx-auto max-w-md p-8 space-y-3 rounded-xl bg-gray-900 text-gray-100 my-8">
             <h1 className="text-2xl font-bold text-center">Login</h1>
             <form className="space-y-6 ng-untouched ng-pristine ng-valid">
                 <div className="space-y-1 text-sm">

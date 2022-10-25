@@ -36,7 +36,7 @@ const Routes = () => {
                     element: <Faq></Faq>
                 },
                 {
-                    path: 'blog',
+                    path: 'blogs',
                     element: <Blog></Blog>
                 },
                 {
