@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import Logo from '../../assets/logo.png'
 
 
@@ -27,7 +27,9 @@ const Header = () => {
                         </li>
                     </ul>
                     <div className="items-center flex-shrink-0 hidden lg:flex">
-                        <button className="self-center px-8 py-3 rounded font-bold text-[#4DB6D2]">Log in</button>
+                        <Link to='/login'>
+                            <button className="self-center px-8 py-3 rounded font-bold text-[#4DB6D2]">Log in</button>
+                        </Link>
                         <label for="Toggle4" className="inline-flex items-center p-1 cursor-pointer bg-gray-300 text-white">
                             <input id="Toggle4" type="checkbox" className="hidden peer" />
                             <span className="px-4 py-2 bg-gray-600 peer-checked:bg-gray-300">Light</span>
