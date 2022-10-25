@@ -7,23 +7,23 @@ import Logo from '../../assets/logo.png'
 const Header = () => {
     return (
         <div>
-            <header className="p-4 dark:bg-gray-800 dark:text-gray-100">
+            <header className="p-4 border-b-2 mx-5 dark:bg-gray-800 dark:text-gray-100">
                 <div className="container flex justify-between h-16 mx-auto">
                     <NavLink rel="noopener noreferrer" to="/" aria-label="Back to homepage" className="flex items-center p-2">
-                        <img src={Logo} alt="site logo" /> <span className='font-bold text-[#4DB6D2] text-3xl ml-3'>E-coding</span>
+                        <img src={Logo} className='w-16' alt="site logo" /> <span className='font-bold text-[#4DB6D2] text-3xl ml-3'>E-Coding</span>
                     </NavLink>
                     <ul className="items-stretch hidden space-x-3 lg:flex font-bold text-[#4DB6D2]">
                         <li className="flex">
-                            <NavLink rel="noopener noreferrer" to="/" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent dark:text-violet-400 dark:border-violet-400">Home</NavLink>
+                            <NavLink rel="noopener noreferrer" to="/" className="flex items-center px-4 -mb-1  dark:border-transparent dark:text-violet-400 dark:border-violet-400">Home</NavLink>
                         </li>
                         <li className="flex">
-                            <NavLink rel="noopener noreferrer" to="/courses" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent">Courses</NavLink>
+                            <NavLink rel="noopener noreferrer" to="/courses" className="flex items-center px-4 -mb-1  dark:border-transparent">Courses</NavLink>
                         </li>
                         <li className="flex">
-                            <NavLink rel="noopener noreferrer" to="/faq" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent">FAQ</NavLink>
+                            <NavLink rel="noopener noreferrer" to="/faq" className="flex items-center px-4 -mb-1  dark:border-transparent">FAQ</NavLink>
                         </li>
                         <li className="flex">
-                            <NavLink rel="noopener noreferrer" to="/blog" className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent">Blog</NavLink>
+                            <NavLink rel="noopener noreferrer" to="/blog" className="flex items-center px-4 -mb-1  dark:border-transparent">Blog</NavLink>
                         </li>
                     </ul>
                     <div className="items-center flex-shrink-0 hidden lg:flex">

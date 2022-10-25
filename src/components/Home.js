@@ -11,7 +11,7 @@ const Home = () => {
             <div className='mx-5 flex flex-col md:flex-row px-5 items-center'>
                 <Lottie animationData={img} loop={true} className='w-full md:w-[40%]'></Lottie>
                 <div className=' w-full md:w-[60%]'>
-                    <h2 className='text-6xl font-bold'>
+                    <h2 className='text-2xl md:text-6xl font-bold'>
                         {''}
                         <Typewriter
                             words={["Let's Learn From Online"]}
@@ -23,7 +23,7 @@ const Home = () => {
                             delaySpeed={1000}
                         />
                     </h2>
-                    <p className='text-xl mt-3'>
+                    <p className='md:text-xl mt-3'>
                         E-coding is a online learning platform,Various types of programming courses are available here for learn.You can Learn Python, Javascript, Php, Kotlin, C#, C++ from here. Learn Programming and grow your skill.
                     </p>
                     <NavLink to='/courses'>
