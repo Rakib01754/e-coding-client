@@ -22,17 +22,17 @@ const Routes = () => {
                 {
                     path: '/',
                     element: <Home></Home>,
-                    loader: () => fetch('http://localhost:5000/courses')
+                    loader: () => fetch('https://assignment10-e-coding-server.vercel.app/courses')
                 },
                 {
                     path: 'courses',
                     element: <Courses></Courses>,
-                    loader: () => fetch('http://localhost:5000/courses')
+                    loader: () => fetch('https://assignment10-e-coding-server.vercel.app/courses')
                 },
                 {
                     path: 'course/:courseId',
                     element: <SingleCourse></SingleCourse>,
-                    loader: ({ params }) => fetch(`http://localhost:5000/course/${params.courseId}`)
+                    loader: ({ params }) => fetch(`https://assignment10-e-coding-server.vercel.app/course/${params.courseId}`)
                 },
                 {
                     path: 'faq',
@@ -52,7 +52,7 @@ const Routes = () => {
                 },
                 {
                     path: 'checkout/:id',
-                    loader: ({ params }) => fetch(`http://localhost:5000/course/${params.id}`),
+                    loader: ({ params }) => fetch(`https://assignment10-e-coding-server.vercel.app/course/${params.id}`),
                     element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>
                 }
             ]

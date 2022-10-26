@@ -2,13 +2,12 @@ import { GithubAuthProvider, GoogleAuthProvider, updateProfile } from 'firebase/
 import React from 'react';
 import { useContext } from 'react';
 import toast from 'react-hot-toast';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { AuthContext } from './AuthProvider/AuthProvider';
 import { FaGithub, FaGoogle } from "react-icons/fa";
 
 const Register = () => {
     const { createUser, googleSignUp, gitSignUp } = useContext(AuthContext)
-    const navigate = useNavigate()
     const handleFormSubmit = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -25,7 +24,6 @@ const Register = () => {
                     displayName: name, photoURL: photoURL
                 }).then(() => {
                     toast.success('profile Updated')
-                    navigate('/')
                 }).catch((error) => {
                     const errorMessage = error.message;
                     toast.error(errorMessage)
@@ -44,6 +42,7 @@ const Register = () => {
     // google signup 
     const handlegoogleSignUp = () => {
         googleSignUp(googleProvider)
+
     }
     // git signup 
     const handlegitSignUp = () => {

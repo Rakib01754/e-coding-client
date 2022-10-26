@@ -18,15 +18,15 @@ const Login = () => {
         const password = form.password.value;
         logIn(email, password)
             .then((userCredential) => {
-                // Signed in 
                 toast.success('Login Succesful');
                 navigate(from, { replace: true });
-
+                // Signed in 
             })
             .catch((error) => {
                 const errorMessage = error.message;
                 toast.error(errorMessage)
             });
+
         form.reset()
     }
 
@@ -36,15 +36,32 @@ const Login = () => {
     // google signup 
     const handlegoogleSignUp = () => {
         googleSignUp(googleProvider)
-        toast.success('Login Succesful');
-        navigate(from, { replace: true });
+            .then((result) => {
+                toast.success('Login Succesful');
+                navigate(from, { replace: true });
+
+            })
+            .catch((error) => {
+                const errorMessage = error.message;
+                toast.error(errorMessage)
+
+            });
     }
     // git signup 
     const handlegitSignUp = () => {
         gitSignUp(gitProvider)
-        toast.success('Login Succesful');
-        navigate(from, { replace: true });
+            .then((result) => {
+                toast.success('Login Succesful');
+                navigate(from, { replace: true });
+
+            })
+            .catch((error) => {
+                const errorMessage = error.message;
+                toast.error(errorMessage)
+
+            });
     }
+
 
 
     return (
