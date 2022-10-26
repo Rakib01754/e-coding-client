@@ -1,8 +1,11 @@
 import React from 'react';
+import { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import Logo from '../../assets/logo.png'
+import { AuthContext } from '../AuthProvider/AuthProvider';
 
 const Header = () => {
+    const { user } = useContext(AuthContext)
     return (
 
         <header className="p-4 bg-gray-800 text-gray-100">
@@ -28,10 +31,12 @@ const Header = () => {
                                 isActive ? 'flex items-center px-4 -mb-1 border-b-2 border-transparent text-violet-400 border-violet-400' : 'flex items-center px-4 -mb-1 border-b-2 border-transparent'}>Faq</NavLink>
                         </li>
                         <li className="flex">
-                            <NavLink rel="noopener noreferrer" to="/login" className={({ isActive }) =>
-                                isActive ? 'flex items-center px-4 -mb-1 border-b-2 border-transparent text-violet-400 border-violet-400' : 'flex items-center px-4 -mb-1 border-b-2 border-transparent'}>
-                                <button className="px-8 py-3 font-semibold rounded dark:bg-violet-400 dark:text-gray-900">Log in</button>
-                            </NavLink>
+                            {
+                                (user && user.uid) ? <img src={user.photoURL} alt="" className="self-center flex-shrink-0 w-13 h-12 mr-2 border rounded-full md:justify-self-start dark:bg-gray-500 dark:border-gray-700" title={user.displayName} /> : <NavLink rel="noopener noreferrer" to="/login" className={({ isActive }) =>
+                                    isActive ? 'flex items-center px-4 -mb-1 border-b-2 border-transparent text-violet-400 border-violet-400' : 'flex items-center px-4 -mb-1 border-b-2 border-transparent'}>
+                                    <button className="px-8 py-3 font-semibold rounded dark:bg-violet-400 dark:text-gray-900">Log in</button>
+                                </NavLink>
+                            }
                         </li>
                     </ul>
                     <button className="flex justify-end p-4 md:hidden">

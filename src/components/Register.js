@@ -1,10 +1,45 @@
+import { updateProfile } from 'firebase/auth';
 import React from 'react';
+import { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { AuthContext } from './AuthProvider/AuthProvider';
 
 const Register = () => {
+    const { createUser } = useContext(AuthContext)
+    const handleFormSubmit = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const photoURL = form.photourl.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        createUser(email, password)
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                updateProfile(user, {
+                    displayName: name, photoURL: photoURL
+                }).then(() => {
+                    // Profile updated!
+                    // ...
+                }).catch((error) => {
+                    // An error occurred
+                    // ...
+                });
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorMessage)
+            });
+        form.reset();
+    }
+
+
     return (
         <div className="w-[90%] mx-auto max-w-md p-8 space-y-3 rounded-xl bg-gray-200 text-black my-8">
             <h1 className="text-2xl font-bold text-center">Sign Up Here</h1>
-            <form className="space-y-6 ng-untouched ng-pristine ng-valid">
+            <form onSubmit={handleFormSubmit} className="space-y-6 ng-untouched ng-pristine ng-valid">
                 <div className="space-y-1 text-sm">
                     <label htmlFor="name" className="block text-gray-400">Your Full Name</label>
                     <input type="text" name="name" id="name" placeholder="Name" className="w-full px-4 py-3 rounded-md border border-white bg-gray-900 text-gray-100 focus:border-violet-400" required />
@@ -40,6 +75,9 @@ const Register = () => {
                     </svg>
                 </button>
             </div>
+            <p className="text-xs text-center sm:px-6 text-black">Have an account?
+                <Link rel="noopener noreferrer" to="/login" className="underline text-black font-bold"> Log in </Link>
+            </p>
         </div>
     );
 };

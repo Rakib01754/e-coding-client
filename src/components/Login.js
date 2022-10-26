@@ -1,11 +1,34 @@
 import React from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from './AuthProvider/AuthProvider';
 
 const Login = () => {
+    const { logIn } = useContext(AuthContext);
+    const handleFormSubmit = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        logIn(email, password)
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                console.log(user)
+                // ...
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorMessage);
+            });
+        form.reset()
+    }
+
     return (
         <div className="w-[90%] mx-auto max-w-md p-8 space-y-3 rounded-xl bg-gray-200 text-black my-8">
             <h1 className="text-2xl font-bold text-center">Login</h1>
-            <form className="space-y-6 ng-untouched ng-pristine ng-valid">
+            <form onSubmit={handleFormSubmit} className="space-y-6 ng-untouched ng-pristine ng-valid">
                 <div className="space-y-1 text-sm">
                     <label htmlFor="email" className="block text-gray-400">Your Email</label>
                     <input type="text" name="email" id="username" placeholder="Email" className="w-full px-4 py-3 rounded-md bg-gray-900 text-gray-100 focus:border-violet-400" required />
