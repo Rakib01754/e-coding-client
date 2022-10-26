@@ -16,29 +16,34 @@ const AuthProvider = ({ children }) => {
 
     // email password signup 
     const createUser = (email, password) => {
+        setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
     // signUp with google 
 
     const googleSignUp = (googleProvider) => {
+        setLoading(true)
         signInWithPopup(auth, googleProvider)
     }
 
     //signUp with git 
 
     const gitSignUp = (gitProvider) => {
+        setLoading(true)
         signInWithPopup(auth, gitProvider)
     }
 
     // signin with email password
     const logIn = (email, password) => {
+        setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
 
     // sign out 
 
     const logOut = () => {
+        setLoading(true)
         return signOut(auth)
     }
 
@@ -52,13 +57,6 @@ const AuthProvider = ({ children }) => {
         return () => unsubscribe();
 
     }, [])
-
-
-
-
-
-
-
 
 
     const authInfo = { user, loading, createUser, googleSignUp, gitSignUp, logIn, logOut };

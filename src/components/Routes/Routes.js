@@ -8,6 +8,7 @@ import Faq from '../Faq';
 import Home from '../Home';
 import Login from '../Login';
 import Main from '../Main';
+import PrivateRoute from '../PrivateRoute';
 import Register from '../Register';
 import SingleCourse from '../SingleCourse';
 
@@ -52,7 +53,7 @@ const Routes = () => {
                 {
                     path: 'checkout/:id',
                     loader: ({ params }) => fetch(`http://localhost:5000/course/${params.id}`),
-                    element: <CheckOut></CheckOut>
+                    element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>
                 }
             ]
         }

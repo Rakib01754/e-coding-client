@@ -1,12 +1,16 @@
 import React from 'react';
 import { useContext } from 'react';
 import toast from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from './AuthProvider/AuthProvider';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
     const { logIn, googleSignUp, gitSignUp } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    console.log(location)
+    let from = location.state?.from?.pathname || "/";
     const handleFormSubmit = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -15,8 +19,9 @@ const Login = () => {
         logIn(email, password)
             .then((userCredential) => {
                 // Signed in 
-                toast.success('Login Succesful')
-                // ...
+                toast.success('Login Succesful');
+                navigate(from, { replace: true });
+
             })
             .catch((error) => {
                 const errorMessage = error.message;
@@ -31,10 +36,14 @@ const Login = () => {
     // google signup 
     const handlegoogleSignUp = () => {
         googleSignUp(googleProvider)
+        toast.success('Login Succesful');
+        navigate(from, { replace: true });
     }
     // git signup 
     const handlegitSignUp = () => {
         gitSignUp(gitProvider)
+        toast.success('Login Succesful');
+        navigate(from, { replace: true });
     }
 
 

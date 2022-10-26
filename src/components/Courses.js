@@ -14,7 +14,7 @@ const Courses = () => {
                             <h2 className="text-2xl font-bold underline tracking-widest uppercase text-gray-400">Courses</h2>
                             <div className="flex flex-col space-y-1">
                                 {
-                                    courses.map(course => <NavLink to={`/course/${course.id}`} className='font-bold text-xl hover:underline'>{course.name}</NavLink>)
+                                    courses.map(course => <NavLink key={course.id} to={`/course/${course.id}`} className='font-bold text-xl hover:underline'>{course.name}</NavLink>)
                                 }
                             </div>
                         </div>
