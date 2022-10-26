@@ -1,12 +1,12 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import Pdf from "react-to-pdf";
 
 const ref = React.createRef();
 
 const SingleCourse = () => {
     const course = useLoaderData();
-    const { title, detail_pic, details, skills, duration, name } = course
+    const { title, detail_pic, details, skills, duration, name, id } = course
     return (
         <section>
             <div className="bg-violet-400">
@@ -27,10 +27,12 @@ const SingleCourse = () => {
                         {
                             skills.map((skill, idx) => <li key={idx} className='font-bold text-left md:text-xl my-2'>{skill}</li>)
                         }
-                        <h4 className='font-bold text-xl text-white my-5'>Course Duration <span className='border-2 border-black p-2'>{duration}</span></h4>
+                        <h4 className='font-bold text-xl text-white my-8'>Course Duration <span className='border-2 border-black p-2'>{duration}</span></h4>
                     </div>
                     <div className="flex flex-wrap justify-center">
-                        <button type="button" className="px-8 py-3 m-2 text-lg font-semibold rounded bg-gray-800 text-gray-50">Get Premium Access</button>
+                        <Link to={`../checkout/${id}`}>
+                            <button type="button" className="px-8 py-3 m-2 text-lg font-semibold rounded bg-gray-800 text-gray-50">Get Premium Access</button>
+                        </Link>
                     </div>
                 </div>
             </div>

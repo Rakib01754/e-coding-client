@@ -1,6 +1,7 @@
 import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Blog from '../Blog';
+import CheckOut from '../CheckOut';
 import Courses from '../Courses';
 import ErrorPage from '../ErrorPage';
 import Faq from '../Faq';
@@ -47,6 +48,11 @@ const Routes = () => {
                 {
                     path: 'register',
                     element: <Register></Register>
+                },
+                {
+                    path: 'checkout/:id',
+                    loader: ({ params }) => fetch(`http://localhost:5000/course/${params.id}`),
+                    element: <CheckOut></CheckOut>
                 }
             ]
         }
