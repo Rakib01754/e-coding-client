@@ -5,12 +5,12 @@ const Blog = () => {
         <div className='p-5 mt-5'>
             <h1 className='text-5xl font-bold text-center underline'>Blogs</h1>
             <div className="bg-gray-200 text-black my-12">
-                <div className="container max-w-4xl px-10 py-6 mx-auto rounded-lg">
-                    <div className="mt-3 border-2 p-4 border-white shadow-md">
+                <div className="container max-w-4xl px-10 py-6 mx-auto">
+                    <div className="mt-3 border-2 p-4 border-white shadow-md rounded-lg">
                         <h4 className="text-3xl font-bold hover:underline">What is cors?</h4>
                         <p className="mt-2">CORS (Cross-Origin Resource Sharing) is a system, consisting of transmitting HTTP headers, that determines whether browsers block frontend JavaScript code from accessing responses for cross-origin requests. The same-origin security policy forbids cross-origin access to resources. But CORS gives web servers the ability to say they want to opt into allowing cross-origin access to their resources.</p>
                     </div>
-                    <div className="mt-3  border-2 p-4 border-white shadow-md">
+                    <div className="mt-3  border-2 p-4 border-white shadow-md rounded-lg">
                         <h4 className="text-3xl font-bold hover:underline">Why are you using `firebase`? What other options do you have to implement authentication?</h4>
 
                         <p className="mt-2">Firebase Authentication provides backend services, easy-to-use SDKs, and ready-made UI libraries to authenticate users to your app. It supports authentication using passwords, phone numbers, popular federated identity providers like Google, Facebook and Twitter, and more.   The same-origin security policy forbids cross-origin access to resources. But CORS gives web servers the ability to say they want to opt into allowing cross-origin access to their resources.</p>
@@ -26,11 +26,11 @@ const Blog = () => {
                             <li className='text-xl text-left'>Amazon Cognito</li>
                         </div>
                     </div>
-                    <div className="mt-3  border-2 p-4 border-white shadow-md">
+                    <div className="mt-3  border-2 p-4 border-white shadow-md rounded-lg">
                         <p className="text-3xl font-bold hover:underline">How does the private route work?</p>
                         <p className="mt-2">The react private route component renders child components (children) if the user is logged in. If not logged in the user is redirected to the /login page with the return url passed in the location state property. The current logged in user (authUser) is retrieved from Redux state with a call to the useSelector() hook. Redux is used in this example however it is not required to implement a Private Route component in React Router 6. You could use a different state management library or any approach you prefer to get the logged in status of the user.</p>
                     </div>
-                    <div className="mt-3  border-2 p-4 border-white shadow-md">
+                    <div className="mt-3  border-2 p-4 border-white shadow-md rounded-lg">
                         <p className="text-3xl font-bold hover:underline">What is Node? How does Node work?</p>
                         <h5 className='font-bold text-2xl my-2 underline'>Defination Of Node.</h5>
                         <p className="mt-2">

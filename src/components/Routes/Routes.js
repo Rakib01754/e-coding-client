@@ -9,6 +9,7 @@ import Home from '../Home';
 import Login from '../Login';
 import Main from '../Main';
 import Register from '../Register';
+import SingleCourse from '../SingleCourse';
 
 const Routes = () => {
     const router = createBrowserRouter([
@@ -24,12 +25,12 @@ const Routes = () => {
                 {
                     path: 'courses',
                     element: <Courses></Courses>,
-                    children: [
-                        {
-                            path: 'course',
-                            element: <Course></Course>
-                        }
-                    ]
+                    loader: () => fetch('http://localhost:5000/courses'),
+                },
+                {
+                    path: 'course/:courseId',
+                    element: <SingleCourse></SingleCourse>,
+                    loader: ({ params }) => fetch(`http://localhost:5000/course/${params.courseId}`)
                 },
                 {
                     path: 'faq',

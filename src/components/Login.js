@@ -3,16 +3,16 @@ import { Link } from 'react-router-dom';
 
 const Login = () => {
     return (
-        <div className="w-[90%] mx-auto max-w-md p-8 space-y-3 rounded-xl bg-gray-900 text-gray-100 my-8">
+        <div className="w-[90%] mx-auto max-w-md p-8 space-y-3 rounded-xl bg-gray-200 text-black my-8">
             <h1 className="text-2xl font-bold text-center">Login</h1>
             <form className="space-y-6 ng-untouched ng-pristine ng-valid">
                 <div className="space-y-1 text-sm">
                     <label htmlFor="email" className="block text-gray-400">Your Email</label>
-                    <input type="text" name="email" id="username" placeholder="Email" className="w-full px-4 py-3 rounded-md border border-white bg-gray-900 text-gray-100 focus:border-violet-400" required />
+                    <input type="text" name="email" id="username" placeholder="Email" className="w-full px-4 py-3 rounded-md bg-gray-900 text-gray-100 focus:border-violet-400" required />
                 </div>
                 <div className="space-y-1 text-sm">
                     <label htmlFor="password" className="block text-gray-400">Your Password</label>
-                    <input type="password" name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md border border-white bg-gray-900 text-gray-100 focus:border-violet-400" required />
+                    <input type="password" name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md bg-gray-900 text-gray-100 focus:border-violet-400" required />
                     <div className="flex justify-end text-xs text-gray-400">
                         <Link rel="noopener noreferrer" to="#">Forgot Password?</Link>
                     </div>
@@ -21,7 +21,7 @@ const Login = () => {
             </form>
             <div className="flex items-center pt-4 space-x-1">
                 <div className="flex-1 h-px sm:w-16 bg-gray-700"></div>
-                <p className="px-3 text-sm text-gray-400">Login with social accounts</p>
+                <p className="px-3 text-sm text-black">Login with social accounts</p>
                 <div className="flex-1 h-px sm:w-16 bg-gray-700"></div>
             </div>
             <div className="flex justify-center space-x-4">
@@ -36,8 +36,8 @@ const Login = () => {
                     </svg>
                 </button>
             </div>
-            <p className="text-xs text-center sm:px-6 text-gray-400">Don't have an account?
-                <Link rel="noopener noreferrer" to="/register" className="underline text-gray-100"> Sign up</Link>
+            <p className="text-xs text-center sm:px-6 text-black">Don't have an account?
+                <Link rel="noopener noreferrer" to="/register" className="underline text-black font-bold"> Sign up</Link>
             </p>
         </div>
     );
