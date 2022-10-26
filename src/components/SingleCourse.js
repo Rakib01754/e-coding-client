@@ -13,6 +13,11 @@ const SingleCourse = () => {
                     </span>
                     </h1>
                     <p className="mt-6 mb-8 text-lg sm:mb-12 xl:max-w-3xl text-gray-900">{details}</p>
+                    <h4 className='font-bold text-2xl underline'>You Will Gain Those Skills From This Course</h4>
+                    {
+                        skills.map(skill => <li className='font-bold text-left text-xl my-2'>{skill}</li>)
+                    }
+                    <h4 className='font-bold text-xl text-white my-5'>Course Duration <span className='border-2 border-black p-2'>{duration}</span></h4>
                     <div className="flex flex-wrap justify-center">
                         <button type="button" className="px-8 py-3 m-2 text-lg font-semibold rounded bg-gray-800 text-gray-50">Get Premium Access</button>
                     </div>
