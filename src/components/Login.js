@@ -7,7 +7,7 @@ import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import { FaGithub, FaGoogle } from "react-icons/fa";
 
 const Login = () => {
-    const { logIn, googleSignUp, gitSignUp } = useContext(AuthContext);
+    const { logIn, googleSignUp, gitSignUp, forgotPassword } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     let from = location.state?.from?.pathname || "/";
@@ -62,6 +62,22 @@ const Login = () => {
             });
     }
 
+    // password reset 
+    const hadleForgotPassword = () => {
+        const email = prompt('Type Your Email Here')
+        forgotPassword(email)
+            .then(() => {
+                // Password reset email sent!
+                toast.success(`Password Reset Email Sent to ${email}`)
+            })
+            .catch((error) => {
+                const errorMessage = error.message;
+                toast.error(errorMessage)
+                // ..
+            });
+
+    }
+
 
 
     return (
@@ -76,7 +92,7 @@ const Login = () => {
                     <label htmlFor="password" className="block text-gray-400">Your Password</label>
                     <input type="password" name="password" id="password" placeholder="Password" className="w-full px-4 py-3 rounded-md bg-gray-900 text-gray-100 focus:border-violet-400" required />
                     <div className="flex justify-end text-xs text-gray-400">
-                        <Link rel="noopener noreferrer" to="#">Forgot Password?</Link>
+                        <Link onClick={hadleForgotPassword} rel="noopener noreferrer" to="#">Forgot Password?</Link>
                     </div>
                 </div>
                 <button className="block w-full p-3 text-center rounded-sm text-gray-900 bg-violet-400">Sign in</button>
