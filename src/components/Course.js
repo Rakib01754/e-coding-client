@@ -13,7 +13,7 @@ const Course = ({ course }) => {
             </div>
             <p className="text-black mb-8">{about}</p>
             <Link to={`/course/${course.id}`}>
-                to={`/course/${course.id}`}<button type="button" className="px-8 py-3 font-semibold rounded bg-violet-600 hover:bg-orange-600 text-white absolute inset-x-0 bottom-0 ">Course Details</button>
+                <button type="button" className="px-8 py-3 font-semibold rounded bg-violet-600 hover:bg-orange-600 text-white absolute inset-x-0 bottom-0 ">Course Details</button>
             </Link>
         </div>
 

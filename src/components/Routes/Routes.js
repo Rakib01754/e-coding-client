@@ -1,7 +1,6 @@
 import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Blog from '../Blog';
-import Course from '../Course';
 import Courses from '../Courses';
 import ErrorPage from '../ErrorPage';
 import Faq from '../Faq';
@@ -20,7 +19,8 @@ const Routes = () => {
             children: [
                 {
                     path: '/',
-                    element: <Home></Home>
+                    element: <Home></Home>,
+                    loader: () => fetch('http://localhost:5000/courses'),
                 },
                 {
                     path: 'courses',

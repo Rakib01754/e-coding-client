@@ -1,11 +1,13 @@
 import React from 'react';
 import Lottie from "lottie-react";
 import img from '../assets/learning.json'
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLoaderData } from 'react-router-dom';
 import { Typewriter } from 'react-simple-typewriter'
+import CourseSample from './CourseSample';
 
 
 const Home = () => {
+    const courses = useLoaderData();
     return (
         <div className='my-16'>
             <div className='mx-5 flex flex-col md:flex-row px-5 items-center'>
@@ -33,6 +35,14 @@ const Home = () => {
             </div>
             <div>
                 <h2 className='text-4xl font-bold mt-2'>Our Popular Courses</h2>
+                <div className='container flex flex-col justify-center p-4 mx-auto'>
+                    <div className='grid grid-cols-1 gap-4 lg:grid-cols-4 sm:grid-cols-2'>
+                        {
+                            courses.map(course => <CourseSample key={course.id} course={course}></CourseSample>)
+                        }
+                    </div>
+                </div>
+
             </div>
         </div>
     );
