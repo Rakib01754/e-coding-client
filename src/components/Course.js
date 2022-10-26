@@ -5,8 +5,8 @@ const Course = ({ course }) => {
     const { title, picture, name, about } = course;
     return (
 
-        <div className="max-w-xs p-6 rounded-md shadow-lg bg-gray-200 text-black relative">
-            <img src={picture} alt="course" className="w-full rounded-md h-72 bg-gray-500" />
+        <div className="p-6 rounded-md shadow-lg bg-gray-200 text-black relative">
+            <img src={picture} alt="course" className="rounded-md h-72 bg-gray-500" />
             <div className="mt-6 mb-2">
                 <span className="block text-xs font-medium tracking-widest uppercase text-violet-600">{name}</span>
                 <h2 className="text-xl font-semibold tracking-wide">{title}</h2>

@@ -35,7 +35,7 @@ const Home = () => {
             </div>
             <div>
                 <h2 className='text-4xl font-bold mt-2'>Our Popular Courses</h2>
-                <div className='container flex flex-col justify-center p-4 mx-auto'>
+                <div className='container flex flex-col justify-center p-4 w-[90%] mx-auto'>
                     <div className='grid grid-cols-1 gap-4 lg:grid-cols-4 sm:grid-cols-2'>
                         {
                             courses.map(course => <CourseSample key={course.id} course={course}></CourseSample>)
