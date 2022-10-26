@@ -7,7 +7,7 @@ import { Typewriter } from 'react-simple-typewriter'
 
 const Home = () => {
     return (
-        <>
+        <div className='my-16'>
             <div className='mx-5 flex flex-col md:flex-row px-5 items-center'>
                 <Lottie animationData={img} loop={true} className='w-full md:w-[40%]'></Lottie>
                 <div className=' w-full md:w-[60%]'>
@@ -34,7 +34,7 @@ const Home = () => {
             <div>
                 <h2 className='text-4xl font-bold mt-2'>Our Popular Courses</h2>
             </div>
-        </>
+        </div>
     );
 };
 

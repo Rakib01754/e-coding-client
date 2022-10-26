@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom';
 const Courses = () => {
     return (
         <div>
-            <h1>This is courses</h1>
+            <h1>Courses Page</h1>
             <Outlet></Outlet>
         </div>
     );
