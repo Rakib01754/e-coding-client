@@ -3,7 +3,6 @@ import { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from './AuthProvider/AuthProvider';
-import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import { FaGithub, FaGoogle } from "react-icons/fa";
 
 const Login = () => {
@@ -30,36 +29,35 @@ const Login = () => {
         form.reset()
     }
 
-    // providers
-    const googleProvider = new GoogleAuthProvider();
-    const gitProvider = new GithubAuthProvider()
+
+
     // google signup 
     const handlegoogleSignUp = () => {
-        googleSignUp(googleProvider)
+        googleSignUp()
             .then((result) => {
-                toast.success('Login Succesful');
                 navigate(from, { replace: true });
 
             })
-            .catch((error) => {
+            .catch(error => {
                 const errorMessage = error.message;
                 toast.error(errorMessage)
 
-            });
+            })
+
     }
     // git signup 
     const handlegitSignUp = () => {
-        gitSignUp(gitProvider)
-            .then((result) => {
+        gitSignUp()
+            .then(result => {
                 toast.success('Login Succesful');
                 navigate(from, { replace: true });
 
             })
-            .catch((error) => {
+            .catch(error => {
                 const errorMessage = error.message;
                 toast.error(errorMessage)
 
-            });
+            })
     }
 
     // password reset 

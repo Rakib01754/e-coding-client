@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { createContext } from 'react';
 import app from '../../firebase/firebase.init';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import { useEffect } from 'react';
 
 
@@ -19,19 +19,22 @@ const AuthProvider = ({ children }) => {
         setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
+    // providers 
+    const googleProvider = new GoogleAuthProvider()
+    const gitProvider = new GithubAuthProvider()
 
     // signUp with google 
 
-    const googleSignUp = (googleProvider) => {
+    const googleSignUp = () => {
         setLoading(true)
-        signInWithPopup(auth, googleProvider)
+        return signInWithPopup(auth, googleProvider)
     }
 
     //signUp with git 
 
-    const gitSignUp = (gitProvider) => {
+    const gitSignUp = () => {
         setLoading(true)
-        signInWithPopup(auth, gitProvider)
+        return signInWithPopup(auth, gitProvider)
     }
 
     // signin with email password

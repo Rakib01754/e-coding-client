@@ -30,7 +30,7 @@ const SingleCourse = () => {
                         <h4 className='font-bold text-xl text-white my-8'>Course Duration <span className='border-2 border-black p-2'>{duration}</span></h4>
                     </div>
                     <div className="flex flex-wrap justify-center">
-                        <Link to={`../checkout/${id}`}>
+                        <Link to={`/checkout/${id}`}>
                             <button type="button" className="px-8 py-3 m-2 text-lg font-semibold rounded bg-gray-800 text-gray-50">Get Premium Access</button>
                         </Link>
                     </div>

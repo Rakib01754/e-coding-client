@@ -1,6 +1,5 @@
 import React from 'react';
-import { NavLink, useLoaderData } from 'react-router-dom';
-import Course from './Course';
+import { NavLink, Outlet, useLoaderData } from 'react-router-dom';
 
 const Courses = () => {
     const courses = useLoaderData()
@@ -14,18 +13,14 @@ const Courses = () => {
                             <h2 className="text-2xl font-bold underline tracking-widest uppercase text-gray-400">Courses</h2>
                             <div className="flex flex-col space-y-1">
                                 {
-                                    courses.map(course => <NavLink key={course.id} to={`/course/${course.id}`} className='font-bold text-xl hover:underline'>{course.name}</NavLink>)
+                                    courses.map(course => <NavLink key={course.id} to={`course/${course.id}`} className='font-bold text-xl hover:underline'>{course.name}</NavLink>)
                                 }
                             </div>
                         </div>
                     </nav>
                 </aside>
                 <div className="container flex flex-col justify-center p-4 mx-auto mt-3">
-                    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-                        {
-                            courses.map(course => <Course key={course.id} course={course}></Course>)
-                        }
-                    </div>
+                    <Outlet></Outlet>
                 </div>
             </div>
         </>

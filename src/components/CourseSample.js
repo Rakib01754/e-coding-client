@@ -11,7 +11,7 @@ const CourseSample = ({ course }) => {
                     <h2 className="text-3xl font-semibold tracking-wide">{name}</h2>
 
                 </div>
-                <Link to={`/course/${course.id}`}>
+                <Link to={`courses/course/${course.id}`}>
                     <button type="button" className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md bg-violet-400 text-white">Details</button>
                 </Link>
             </div>

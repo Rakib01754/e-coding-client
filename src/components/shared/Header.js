@@ -1,7 +1,7 @@
 import React from 'react';
 import { useContext } from 'react';
 import toast from 'react-hot-toast';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import Logo from '../../assets/logo.png'
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import { FaBars } from "react-icons/fa";
@@ -9,11 +9,13 @@ import { FaBars } from "react-icons/fa";
 const Header = () => {
     const [navbarOpen, setNavbarOpen] = React.useState(false);
     const { user, logOut } = useContext(AuthContext)
+    const navigate = useNavigate()
 
     const handleLogOut = () => {
         logOut()
             .then(() => {
                 toast.success('Log Out Success')
+                navigate('/login')
             }).catch((error) => {
                 toast.success(error.errorMessage)
             });
@@ -62,7 +64,9 @@ const Header = () => {
                                 {
                                     (user && user.uid) ?
                                         <>
-                                            <img src={user.photoURL} alt="" className="self-center flex-shrink-0 w-13 h-12 mr-2 border rounded-full md:justify-self-start dark:bg-gray-500 dark:border-gray-700" title={user.displayName} />
+                                            <Link to='/profile'>
+                                                <img src={user.photoURL} alt="" className="self-center flex-shrink-0 w-13 h-12 mr-2 border rounded-full md:justify-self-start dark:bg-gray-500 dark:border-gray-700" title={user.displayName} />
+                                            </Link>
                                             <button onClick={handleLogOut} className="px-8 py-3 font-semibold rounded dark:bg-violet-400 dark:text-gray-900">Log Out</button>
                                         </> : <NavLink to="/login" className={({ isActive }) =>
                                             isActive ? 'flex items-center px-4 -mb-1 border-b-2 border-transparent text-violet-400 border-violet-400' : 'flex items-center px-4 -mb-1 border-b-2 border-transparent'}>
