@@ -2,7 +2,7 @@ import React from 'react';
 import { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { AuthContext } from './AuthProvider/AuthProvider';
+import { AuthContext } from '../AuthProvider/AuthProvider';
 import { FaGithub, FaGoogle } from "react-icons/fa";
 
 const Login = () => {

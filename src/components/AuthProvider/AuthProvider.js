@@ -66,7 +66,7 @@ const AuthProvider = ({ children }) => {
         return () => unsubscribe();
 
     }, []);
-
+    // courses data 
     useEffect(() => {
         fetch('https://assignment10-e-coding-server.vercel.app/courses')
             .then(res => res.json())

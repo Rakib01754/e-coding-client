@@ -1,14 +1,31 @@
 import React from 'react';
 import { useContext } from 'react';
-import { AuthContext } from './AuthProvider/AuthProvider';
 import { FaMailBulk, FaOrcid } from 'react-icons/fa'
+import { updateProfile } from 'firebase/auth';
+import toast from 'react-hot-toast';
+import { AuthContext } from '../AuthProvider/AuthProvider';
 
 const Profile = () => {
     const { user } = useContext(AuthContext)
+
+    const handleEdit = () => {
+        const name = prompt('Type Your New Name Here');
+        const photoURL = prompt('Type Your New Photo Url Here')
+        updateProfile(user, { displayName: name, photoURL: photoURL })
+            .then(() => {
+                // Profile updated!
+                toast.success('Profile Edited')
+                toast.success('Reaload The Page')
+            }).catch((error) => {
+                // An error occurred
+                const errorMessage = error.message;
+                toast.warning(errorMessage)
+            });
+    }
     return (
         <div>
             {
-                (user && user.uid) ? <>
+                (user && user?.emailVerified) ? <>
                     <h1 className='text-5xl font-bold text-center underline'>User Profile</h1>
                     <div className="w-[80%] md:w-[40%] mx-auto my-32 p-8 bg-gray-200 text-black">
                         <div className="flex-shrink-0  mb-6 h-44">
@@ -33,6 +50,9 @@ const Profile = () => {
                                     <FaOrcid />
                                     <span className="text-black">{user?.uid} </span>
                                 </span>
+                                <span>
+                                    <button onClick={handleEdit} type="button" className="px-8 py-3 font-semibold border rounded border-black text-violet-700 mt-4">Edit Profile</button>
+                                </span>
 
                             </div>
                         </div>
@@ -41,7 +61,7 @@ const Profile = () => {
                     <>
                         <h1 className='text-5xl font-bold text-center underline'>User Profile</h1>
                         <div className="w-[80%] md:w-[40%] mx-auto my-32 p-8 bg-gray-200 text-black">
-                            <h1>Login First to see your Profile Information</h1>
+                            <h1>Verify Your Email Address First. Then Reload This Page again. To See Your Profile Information</h1>
                         </div>
                     </>
             }

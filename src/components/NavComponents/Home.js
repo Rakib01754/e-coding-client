@@ -1,11 +1,11 @@
 import React from 'react';
 import Lottie from "lottie-react";
-import img from '../assets/learning.json'
+import img from '../../assets/learning.json'
 import { NavLink } from 'react-router-dom';
 import { Typewriter } from 'react-simple-typewriter'
-import CourseSample from './CourseSample';
 import { useContext } from 'react';
-import { AuthContext } from './AuthProvider/AuthProvider';
+import { AuthContext } from '../AuthProvider/AuthProvider';
+import CourseSample from '../CourseComponents/CourseSample';
 
 
 const Home = () => {
