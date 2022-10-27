@@ -1,8 +1,10 @@
 import React from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { AuthContext } from './AuthProvider/AuthProvider';
 
 const Course = () => {
-    const courses = useLoaderData();
+    const { courses } = useContext(AuthContext);
     return (
         <>
             {

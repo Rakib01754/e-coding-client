@@ -24,16 +24,13 @@ const Routes = () => {
                 {
                     path: '/',
                     element: <Home></Home>,
-                    loader: () => fetch('https://assignment10-e-coding-server.vercel.app/courses')
                 },
                 {
                     path: 'courses',
                     element: <Courses></Courses>,
-                    loader: () => fetch('https://assignment10-e-coding-server.vercel.app/courses'),
                     children: [
                         {
                             path: '/courses',
-                            loader: () => fetch('https://assignment10-e-coding-server.vercel.app/courses'),
                             element: <Course></Course>
                         },
                         {

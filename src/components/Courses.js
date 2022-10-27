@@ -1,8 +1,10 @@
 import React from 'react';
-import { NavLink, Outlet, useLoaderData } from 'react-router-dom';
+import { useContext } from 'react';
+import { NavLink, Outlet } from 'react-router-dom';
+import { AuthContext } from './AuthProvider/AuthProvider';
 
 const Courses = () => {
-    const courses = useLoaderData()
+    const { courses } = useContext(AuthContext);
     return (
         <>
             <h1 className='text-5xl font-bold text-center underline'>Courses</h1>

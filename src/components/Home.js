@@ -1,13 +1,15 @@
 import React from 'react';
 import Lottie from "lottie-react";
 import img from '../assets/learning.json'
-import { NavLink, useLoaderData } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { Typewriter } from 'react-simple-typewriter'
 import CourseSample from './CourseSample';
+import { useContext } from 'react';
+import { AuthContext } from './AuthProvider/AuthProvider';
 
 
 const Home = () => {
-    const courses = useLoaderData();
+    const { courses } = useContext(AuthContext);
     return (
         <div className='my-16'>
             <div className='mx-5 flex flex-col md:flex-row px-5 items-center'>

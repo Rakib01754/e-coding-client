@@ -13,6 +13,7 @@ export const AuthContext = createContext(app)
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
+    const [courses, setCourses] = useState([])
 
     // email password signup 
     const createUser = (email, password) => {
@@ -64,10 +65,16 @@ const AuthProvider = ({ children }) => {
         })
         return () => unsubscribe();
 
+    }, []);
+
+    useEffect(() => {
+        fetch('https://assignment10-e-coding-server.vercel.app/courses')
+            .then(res => res.json())
+            .then(data => setCourses(data))
     }, [])
 
 
-    const authInfo = { user, loading, createUser, googleSignUp, gitSignUp, logIn, forgotPassword, logOut };
+    const authInfo = { user, loading, createUser, googleSignUp, gitSignUp, logIn, forgotPassword, logOut, courses };
     return (
         <div>
             <AuthContext.Provider value={authInfo}>
