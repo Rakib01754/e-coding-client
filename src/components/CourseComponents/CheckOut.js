@@ -59,7 +59,7 @@ const CheckOut = () => {
                         <div className="mt-6 sm:mt-0 xl:my-10 xl:px-20 w-52 sm:w-96 xl:w-auto">
                             <img src={detail_pic} alt="{name}" />
                         </div>
-                        <p className='font-bold text-2xl'>Course Price: {price}</p>
+                        <p className='font-bold text-2xl text-black'>Course Price: {price}</p>
                     </div>
 
                     <form onSubmit={handlePayButton} className="p-8 bg-gray-100 dark:bg-gray-800 flex flex-col lg:w-full xl:w-3/5">

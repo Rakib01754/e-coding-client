@@ -31,7 +31,7 @@ const Home = () => {
                         E-coding is a online learning platform,Various types of programming courses are available here for learn.You can Learn Python, Javascript, Php, Kotlin, C#, C++ from here. Learn Programming and grow your skill.
                     </p>
                     <NavLink to='/courses'>
-                        <button type="button" className="px-8 py-3 font-semibold border rounded dark:border-gray-100  text-white dark:text-gray-100 bg-[#4DB6D2] mt-5">Start Learning</button>
+                        <button type="button" className="px-8 py-3 font-semibold border rounded dark:border-gray-100  text-white dark:text-gray-100 bg-[#4DB6D2] hover:bg-[#207f99] mt-5">Start Learning</button>
                     </NavLink>
                 </div>
             </div>

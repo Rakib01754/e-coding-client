@@ -16,7 +16,7 @@ const SingleCourse = () => {
                         </h1>
                         <span>
                             <Pdf targetRef={ref} filename="details.pdf">
-                                {({ toPdf }) => <button type="button" className="px-8 py-3 m-2 text-lg font-semibold rounded bg-gray-800 text-gray-50" onClick={toPdf}>Download</button>}
+                                {({ toPdf }) => <button type="button" className="px-8 py-3 m-2 text-lg font-semibold rounded bg-gray-800 text-gray-50 hover:bg-gray-50 hover:text-gray-800" onClick={toPdf}>Download</button>}
                             </Pdf>
                         </span>
                     </div>
@@ -31,7 +31,7 @@ const SingleCourse = () => {
                     </div>
                     <div className="flex flex-wrap justify-center">
                         <Link to={`/checkout/${id}`}>
-                            <button type="button" className="px-8 py-3 m-2 text-lg font-semibold rounded bg-gray-800 text-gray-50">Get Premium Access</button>
+                            <button type="button" className="px-8 py-3 m-2 text-lg font-semibold rounded bg-gray-800 text-gray-50 hover:bg-gray-50 hover:text-gray-800">Get Premium Access</button>
                         </Link>
                     </div>
                 </div>
