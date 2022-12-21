@@ -1,15 +1,30 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import Logo from '../../assets/logo.png'
 import { AuthContext } from '../AuthProvider/AuthProvider';
 import { FaBars } from "react-icons/fa";
+import './darkmode.css'
+import useLocalStorage from 'use-local-storage';
 
 const Header = () => {
     const [navbarOpen, setNavbarOpen] = React.useState(false);
+    const [theme, setTheme] = useLocalStorage("projectTheme", "light");
     const { user, logOut } = useContext(AuthContext)
     const navigate = useNavigate()
+
+    const toggleTheme = () => {
+        if (theme === 'light') {
+            setTheme('dark');
+        } else {
+            setTheme('light');
+        }
+    };
+
+    useEffect(() => {
+        document.body.className = theme;
+    }, [theme]);
 
     const handleLogOut = () => {
         logOut()
@@ -76,7 +91,7 @@ const Header = () => {
                             </li>
                             <li className='flex my-2'>
                                 <label htmlFor="AcceptConditions" className="relative h-8 w-14 cursor-pointer">
-                                    <input type="checkbox" id="AcceptConditions" className="peer sr-only" />
+                                    <input onClick={toggleTheme} type="checkbox" id="AcceptConditions" className="peer sr-only" />
 
                                     <span
                                         className="absolute inset-0 rounded-full bg-gray-300 transition peer-checked:bg-green-500"
