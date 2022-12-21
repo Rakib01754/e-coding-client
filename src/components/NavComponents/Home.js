@@ -36,9 +36,9 @@ const Home = () => {
                 </div>
             </div>
             <div>
-                <h2 className='text-4xl font-bold mt-2'>Our Popular Courses</h2>
+                <h2 className='text-5xl font-bold mt-10'>Our Popular Courses</h2>
                 <div className='container flex flex-col justify-center p-4 w-[90%] mx-auto'>
-                    <div className='grid grid-cols-1 gap-4 lg:grid-cols-4 sm:grid-cols-2'>
+                    <div className='grid grid-cols-1 gap-10 lg:grid-cols-3 sm:grid-cols-2'>
                         {
                             courses.map(course => <CourseSample key={course.id} course={course}></CourseSample>)
                         }
